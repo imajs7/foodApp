@@ -1,12 +1,5 @@
 @use './variables' as data;
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
-
-$base-font: 'Open Sans', sans-serif;
-$title-font: 'Aclonica', sans-serif;
-
 // Normalize
 * {
     margin: 0;
@@ -154,7 +147,7 @@ body {
 
                 h2 {
                     font-size: data.$xl;
-                    font-family: $title-font;
+                    font-family: data.$title-font;
                     color: data.$title;
                     text-transform: capitalize;
                 }
@@ -281,7 +274,7 @@ body {
 
                 h2 {
                     font-size: data.$lg;
-                    font-family: $title-font;
+                    font-family: data.$title-font;
                     color: data.$title;
 
                     position: relative;
@@ -473,11 +466,5 @@ body {
                 }
             }
         }
-    }
-}
-
-@media screen and (max-width: 570px) {
-    .container {
-
     }
 }
