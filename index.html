@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Food App</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="sidebar left">
+            
+            <div class="logo">
+                <img src="./img/foodielogo.png" alt="">
+            </div>
+
+            <div class="navLinks">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-address-card"></i>
+                            <span class="hybrid-display">
+                                About
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-truck"></i>
+                            <span class="hybrid-display">
+                                Services
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-money-bill"></i>
+                            <span class="hybrid-display">
+                                Your Orders
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-heart"></i> 
+                            <span class="hybrid-display">
+                                Wishlists
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-cart-plus"></i> 
+                            <span class="hybrid-display">
+                                Cart
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-phone"></i> 
+                            <span class="hybrid-display">
+                                Contact
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+                            <span class="hybrid-display">
+                                Checkout
+                            </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="menupanel">
+
+            <div class="address">
+                <button id="setAddress"><i class="fa-solid fa-location-dot"></i></button>
+                <input type="text" id="inputAddress" placeholder="Your Address" readonly>
+            </div>
+            
+            <div class="actionMenu">
+
+                <ul>
+                    <li><a href="" class="btn"><i class="fa-solid fa-magnifying-glass"></i> <span class="desktop-item">Search</span></a></li>
+                    <li><a href="" class="btn"><i class="fa-solid fa-tags"></i> <span class="desktop-item">Offers</span></a></li>
+                    <li><a href="" class="btn"><i class="fa-solid fa-cart-plus"></i> <span class="desktop-item">Items</span></a></li>
+                    <li><a href="" class="btn"><i class="fa-solid fa-circle-user"></i> <span class="desktop-item">Account</span></a></li>
+                    <li class="mobile-item"><label for="sidepanel-open" class="btn"><i class="fa-solid fa-bars"></i></label></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="content">
+            
+            <div class="wrapper">
+
+                <div class="category" id="biryani">
+
+                    <!-- <h2>Biryani</h2>
+
+                    <div class="food-list">
+
+                        <div class="card">
+
+                            <div class="topbar">
+                                <button class="rating"><i class="fa-solid fa-star"></i> 4.5</button>
+                                <button class="add-to-cart" id="item-id-1"><i class="fa-solid fa-cart-plus"></i></button>
+                            </div>
+
+                            <div class="featured-image">
+                                <img src="./img/biryani/Chicken-Biryani-hyd.jpg" alt="">
+                            </div>
+
+                            <h3>Product Title</h3>
+                            <h3>Price: ₹150</h3>
+
+                        </div>
+
+                        
+                    </div> -->
+
+                </div>
+
+                <div class="category" id="paneer">
+
+                </div>
+
+                <div class="category" id="chicken">
+
+                </div>
+
+                <div class="category" id="vegetable">
+
+                </div>
+
+                <div class="category" id="chinese">
+
+                </div>
+
+                <div class="category" id="southindian">
+
+                </div>
+
+            </div>
+
+            <div class="footer">
+                <hr>
+                <ul class="legal">
+                    <li><a href="#">Refund</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+                <h2>&copy; Copyright 2022 FoodApp</h2>
+            </div>
+
+        </div>
+
+        <input type="radio" name="sidepanel-toggle" id="sidepanel-open" class="always-hidden">
+        <input type="radio" name="sidepanel-toggle" id="sidepanel-close" class="always-hidden">
+
+        <div class="sidebar right">
+            
+            <div class="filter">
+                <div class="heading">
+                    <h2>Go For Hunt</h2>
+                    <label for="sidepanel-close" class="btn mobile-item"><i class="fa-solid fa-times fa-xl"></i></label>
+                </div>
+                <ul id="filterLinks">
+                    <!-- <li><a href="#"><img src="./img/biryani/Ambur-Chicken-Biryani.jpg" alt="">Biryani</a></li> -->
+                </ul>
+            </div>
+
+            <div id="checkout">
+                
+            </div>
+
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        document.getElementById("setAddress").addEventListener( 'click', () => {
+            let address = prompt("Please enter your address", "");
+            if( address === "" ) {
+                document.getElementById("inputAddress").value = "";
+                document.getElementById("inputAddress").title = "";
+                alert("Address is nor set!");
+            } else {
+                document.getElementById("inputAddress").value = address;
+                document.getElementById("inputAddress").title = address;
+            }
+        } );
+    </script>
+    <script src="js/index.js" type="module"></script>
+</body>
+</html>
