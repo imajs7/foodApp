@@ -24,6 +24,26 @@ body {
     overflow: hidden;
 }
 
+.hidden {
+    display: none;
+}
+
+.checkout {
+    padding: data.$tn data.$sm;
+    border-radius: 100px;
+    border: 2px solid data.$dark;
+    margin: data.$sm 0;
+    color: data.$dark;
+    background-color: data.$accent;
+    transition: all 300ms ease;
+    cursor: pointer;
+
+    &:hover {
+        color: data.$light;
+        background-color: data.$dark;
+    }
+}
+
 /* layout */
 
 .container {
@@ -247,8 +267,119 @@ body {
             }
         }
 
+        .cartTable {
+            
+            table {
+                width: 100%;
+                border: none;
+                border-collapse: collapse;
+
+                @media screen and (max-width: data.$breakpoint-tablet) {
+                    width: calc(100vw - 85px);
+                }
+
+                th, td {
+                    border: none;
+
+                    @media screen and (max-width: data.$breakpoint-tablet) {
+                        &:nth-child(2) {
+                            display: none;
+                        }
+
+                        &:nth-child(3) {
+                            max-width: 100px;
+                        }
+                    }
+                }
+
+                caption {
+                    font-size: data.$md;
+                    font-weight: 700;
+                    text-align: left;
+                    margin-bottom: data.$md;
+                }
+
+                thead {
+                    tr {
+                        th {
+                            color: data.$light;
+                            background-color: data.$dark;
+                            padding: data.$sm 0;
+                        }
+                    }
+                }
+                
+                tbody {
+                    tr {
+                        &:nth-child(even) {
+                            td {
+                                background-color: #e2e2e2;
+                            }
+                        }
+                        td {
+                            text-align: center;
+                            padding: data.$tn 0;
+
+                            &:nth-child(4),
+                            &:nth-child(6) {
+                                &::before {
+                                    content: '₹';
+                                }
+                            }
+
+                            img {
+                                width: 40px;
+                                aspect-ratio: 1;
+                                object-fit: cover;
+                                border-radius: 100px;
+                            }
+
+                            .removeItem {
+                                border: none;
+                                appearance: none;
+                                outline: 2px solid red;
+                                color: red;
+                                height: 30px;
+                                aspect-ratio: 1;
+                                text-transform: capitalize;
+                                border-radius: 100px;
+                                cursor: pointer;
+                                transition: all 300ms ease;
+
+                                &:hover {
+                                    color: white;
+                                    background-color: red;
+                                }
+                            }
+
+                            .qtyBtn {
+                                border: none;
+                                appearance: none;
+                                outline: 1px solid data.$dark;
+                                background-color: data.$accent;
+                                border-radius: 100px;
+                                height: 20px;
+                                aspect-ratio: 1;
+                                cursor: pointer;
+
+                                &:hover {
+                                    color: data.$light;
+                                    background-color: data.$dark;
+                                }
+                            }
+
+                            .qty {
+                                background-color: inherit;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
         .footer {
-            margin-bottom: data.$xl;
+            margin: data.$xxxl 0 data.$xl 0;
 
             & > * {
                 margin-bottom: data.$bs;
@@ -336,10 +467,68 @@ body {
                 }
             }
         }
+
+        #cartSummary {
+
+            position: relative;
+
+            label {
+                position: absolute;
+                top: 0;
+                right: 0;
+                cursor: pointer;
+            }
+
+            table {
+                width: 100%;
+                border: 0;
+                border-collapse: collapse;
+
+                th,
+                td {
+                    padding: data.$sm;
+                    border: 1px solid data.$dark;
+                    width: 50%;
+                }
+
+                th {
+                    text-align: left;
+                    font-weight: 600;
+                }
+
+                td {
+                    text-align: right;
+                }
+
+                caption {
+                    font-size: data.$md;
+                    font-weight: 700;
+                    text-align: left;
+                    margin-bottom: data.$md;
+                }
+
+                
+                tbody {
+                    tr {
+                        &:last-child {
+                            border-top: 2px solid data.$dark;
+                            td {
+                                font-weight: 600;
+                            }
+                        }
+
+                        th {
+                            background-color: data.$light;
+                            color: data.$dark;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: data.$breakpoint-tablet) {
     .container {
         position: relative;
 
@@ -460,7 +649,8 @@ body {
             z-index: 999;
             transition: right 300ms ease;
 
-            .heading {
+            .heading,
+            #cartSummary {
                 .mobile-item {
                     display: block;
                 }

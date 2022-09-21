@@ -22,6 +22,7 @@ let foodItemList = [
     cat1Data, cat2Data, cat3Data, cat4Data, cat5Data, cat6Data
 ];
 
+// populate data in sections
 foodItemList.forEach( ( allFoodItems, id ) => {
 
     let heading = document.createElement('h2');
@@ -58,6 +59,7 @@ foodItemList.forEach( ( allFoodItems, id ) => {
 
         let addToCartIcon = document.createElement('i');
         addToCartIcon.setAttribute( 'class', "fa-solid fa-heart" );
+        addToCartIcon.setAttribute( 'id', `prod-${element.id}` );
 
         addToCart.appendChild( addToCartIcon );
 
@@ -92,6 +94,7 @@ foodItemList.forEach( ( allFoodItems, id ) => {
 
 } );
 
+// create right sidebar filter
 function createFilterByCategory() {
     const QuickNavigate= [...new Map(data.foodItem.map(item=> [item['category'],item])).values()];
     const filterLinks = document.querySelector("#filterLinks");
@@ -120,3 +123,77 @@ function createFilterByCategory() {
 
 createFilterByCategory();
 
+// cart object
+let cartDetails = {};
+
+const updateCart = () => {
+    const showCartText = document.querySelector('#showCartText');
+    let cartCount = Object.keys( cartDetails ).length;
+
+    if( cartCount > 0 ){
+        showCartText.innerText = cartCount + ' Items';
+    } else {
+        showCartText.innerText = 'Items';
+    }
+    console.log( cartDetails );
+};
+
+// function for adding item to cart
+const addToCart = ( event ) => {
+    let productId = event.target.id.replace( 'prod-', '' );
+    if( productId in cartDetails ) {
+        if( confirm('The product is already added to the cart. Do you want to increase quantity?') ) {
+            cartDetails[productId] = cartDetails[productId] + 1;
+        }
+    } else {
+        cartDetails[productId] = 1;
+    }
+    updateCart();
+};
+
+// set event listener on every add to cart button
+document.querySelectorAll('.add-to-cart').forEach( item => {
+    item.addEventListener( 'click', addToCart )
+} );
+
+// function to remove item from cart
+const removeFromCart = ( event ) => {
+    delete( cartDetails[ event.target.id ] );
+    updateCart();
+    console.log( cartDetails );
+};
+
+// set event listener on every remove from cart button
+document.querySelectorAll('.removeItem').forEach( item => {
+    item.addEventListener( 'click', removeFromCart );
+} );
+
+// function for gettig product details by Id
+function getProductDetails( productId ) {
+    return data.foodItem.find( item => item.id === productId );
+}
+
+// checkout page show function
+const checkoutPageShow = event => {
+    event.preventDefault();
+    document.querySelector(".wrapper").classList.add('hidden');
+    document.querySelector(".cartTable").classList.remove('hidden');
+    document.querySelector("#cartSummary").classList.remove('hidden');
+    document.querySelector(".filter").classList.add("hidden");
+};
+
+document.querySelector(".showCart").addEventListener( 'click', checkoutPageShow );
+
+// checkout page hide function
+const checkoutPageHide = event => {
+    event.preventDefault();
+    document.querySelector(".wrapper").classList.remove('hidden');
+    document.querySelector(".cartTable").classList.add('hidden');
+    document.querySelector("#cartSummary").classList.add('hidden');
+    document.querySelector(".filter").classList.remove("hidden");
+    cartDetails = {};
+    updateCart();
+};
+
+document.querySelector("#main-checkout").addEventListener( 'click', checkoutPageHide );
+document.querySelector("#side-checkout").addEventListener( 'click', checkoutPageHide );
