@@ -71,7 +71,7 @@
                         <a href="#">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i> 
                             <span class="hybrid-display">
-                                Checkout
+                                Logout
                             </span>
                         </a>
                     </li>
@@ -157,7 +157,7 @@
 
             <div class="cartTable hidden">
 
-                <table>
+                <!-- <table>
                     <caption>Cart Items</caption>
                     <thead>
                         <tr>
@@ -175,7 +175,7 @@
                             <td><img src="./img/biryani/Ambur-Chicken-Biryani.jpg" alt=""></td>
                             <td>Ambur Chicken Biryani</td>
                             <td>178</td>
-                            <td><button class="qtyBtn minus">-</button> <span class="qty">2</span> <button class="qtyBtn plus">+</button></td>
+                            <td><button class="qtyBtn minus">-</button><span class="qty">2</span><button class="qtyBtn plus">+</button></td>
                             <td>356</td>
                         </tr>
                         <tr>
@@ -196,8 +196,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <hr />
-                <button class="btn checkout" id="main-checkout">Checkout</button>
+                <hr /> 
+                <button class="btn checkout" id="main-checkout">Checkout</button> -->
 
             </div>
 
@@ -232,32 +232,36 @@
 
                 <label for="sidepanel-close" class="btn mobile-item"><i class="fa-solid fa-times fa-xl"></i></label>
 
-                <table>
-                    <caption>Cart Total</caption>
-                    
-                    <tbody>
-                        <tr>
-                            <th scope="col">Grand Total</th>
-                            <td>₹345</td>
-                        </tr>
-                        <tr>
-                            <th scope="col">Packaging</th>
-                            <td>₹20</td>
-                        </tr>
-                        <tr>
-                            <th scope="col">Delivery Fee</th>
-                            <td>₹80</td>
-                        </tr>
-                        <tr>
-                            <th scope="col">Discount</th>
-                            <td>₹25</td>
-                        </tr>
-                        <tr>
-                            <th scope="col">Net Total</th>
-                            <td>₹567</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div id="miniTable"> 
+
+                    <!-- <table>
+                        <caption>Cart Total</caption>
+                        
+                        <tbody>
+                            <tr>
+                                <th scope="col">Grand Total</th>
+                                <td>₹345</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Packaging</th>
+                                <td>₹20</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Delivery Fee</th>
+                                <td>₹80</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Discount</th>
+                                <td>₹25</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Net Total</th>
+                                <td>₹567</td>
+                            </tr>
+                        </tbody>
+                    </table>                   -->
+
+                </div>
 
                 <button class="btn checkout" id="side-checkout">Checkout</button>
                 
@@ -272,7 +276,7 @@
             if( address === "" ) {
                 document.getElementById("inputAddress").value = "";
                 document.getElementById("inputAddress").title = "";
-                alert("Address is nor set!");
+                alert("Address is not set!");
             } else {
                 document.getElementById("inputAddress").value = address;
                 document.getElementById("inputAddress").title = address;

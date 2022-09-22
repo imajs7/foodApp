@@ -193,8 +193,15 @@ body {
   font-size: 0.875rem;
   margin-left: 0.5rem;
 }
+.container .content .wrapper .category .food-list .card .topbar button:last-child {
+  padding: 0;
+  height: 30px;
+  aspect-ratio: 1;
+  text-align: center;
+}
 .container .content .wrapper .category .food-list .card .topbar button:last-child i {
   font-size: 1.25rem;
+  background-color: inherit;
 }
 .container .content .wrapper .category .food-list .card .featured-image {
   text-align: center;
@@ -297,6 +304,7 @@ body {
   border-radius: 100px;
   height: 20px;
   aspect-ratio: 1;
+  margin: 0 0.5rem;
   cursor: pointer;
 }
 .container .content .cartTable table tbody tr td .qtyBtn:hover {
@@ -416,6 +424,12 @@ body {
 .container .sidebar.right #cartSummary table tbody tr th {
   background-color: #f2f2f2;
   color: #333;
+}
+.container .sidebar.right #cartSummary table tbody tr td::before {
+  content: "₹";
+}
+.container .sidebar.right #cartSummary table tbody tr:nth-child(4) td::before {
+  content: "-₹";
 }
 
 @media screen and (max-width: 1200px) {

@@ -225,8 +225,13 @@ body {
                                 }
 
                                 &:last-child {
+                                    padding: 0;
+                                    height: 30px;
+                                    aspect-ratio: 1;
+                                    text-align: center;
                                     i {
                                         font-size: data.$md;
+                                        background-color: inherit;
                                     }
                                 }
 
@@ -360,6 +365,7 @@ body {
                                 border-radius: 100px;
                                 height: 20px;
                                 aspect-ratio: 1;
+                                margin: 0 data.$tn;
                                 cursor: pointer;
 
                                 &:hover {
@@ -520,6 +526,20 @@ body {
                         th {
                             background-color: data.$light;
                             color: data.$dark;
+                        }
+
+                        td {
+                            &::before {
+                                content: '₹';
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            td {
+                                &::before {
+                                    content: '-₹';
+                                }
+                            }
                         }
                     }
                 }
